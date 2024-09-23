@@ -71,7 +71,7 @@ const vegetables = [
     image: '/images/img-13.png'
   },
   {
-    name: 'Berenjenas',
+    name: 'Más Berenjenas',
     price: '5.49€/kg',
     ref: 'Ref. 0074',
     uds: '3-6 unidades (aprox. 1kg)',
