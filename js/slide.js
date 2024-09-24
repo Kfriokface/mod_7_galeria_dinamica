@@ -24,7 +24,7 @@ let mouse_is_down = false;
 let mouse_position_x = [0, 0];
 
 //Calcula la distancia al siguiente slide
-function calculateNextDistance() {
+const calculateNextDistance = () => {
   move_distance = -(current_index * slide_width);
   last_index = current_index;
 
@@ -38,7 +38,7 @@ function calculateNextDistance() {
 }
 
 //Calcula la distancia al anterior slide
-function calculatePrevDistance() {
+const calculatePrevDistance = () => {
   if (current_index > 1) {
     last_index = current_index;
     current_index--;
@@ -52,7 +52,7 @@ function calculatePrevDistance() {
 }
 
 //muevo el slider
-function slideImages(drag_distance) {
+const slideImages  = (drag_distance) => {
   clearInterval(timer);
   const distance = drag_distance || move_distance;
   slides_container.style.transform = `translateX(${distance}px)`;
@@ -61,8 +61,8 @@ function slideImages(drag_distance) {
   timer = setInterval(calculateNextDistance, slide_seconds);
 }
 
-//muevo los thumbs
-function slideDotImages(e) {
+//muevo los dots
+const slideDotImages = (e) => {
   const dots = this.querySelectorAll(".dot");
   for (var i = 1; i <= dots.length; i++) {
     if (e.target.id == `dot-${i}`) {
@@ -75,7 +75,7 @@ function slideDotImages(e) {
 }
 
 //incicializo el slider
-function init() {
+const init = () => {
   document.querySelector(`#dot-${current_index}`).classList.remove("is-active");
 
   slide_width = document.querySelector(".slider").clientWidth;
